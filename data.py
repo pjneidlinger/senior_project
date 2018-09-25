@@ -55,6 +55,18 @@ tree8 = html.fromstring(page8.content)
 tpm = tree8.xpath('//*[@id="my-players-table"]/div/div[2]/table/tr[24]/td[6]/text()[normalize-space()]')
 tpm = ' '.join(tpm)
 
+page9 = requests.get('http://www.espn.com/nba/statistics/player/_/stat/field-goals/sort/avgFieldGoalsAttempted')
+tree9 = html.fromstring(page9.content)
+
+fga = tree9.xpath('//*[@id="my-players-table"]/div/div[2]/table/tr[24]/td[7]/text()[normalize-space()]')
+fga = ' '.join(fga)
+
+page10 = requests.get('http://www.espn.com/nba/statistics/player/_/stat/free-throws/sort/avgFreeThrowsAttempted')
+tree10 = html.fromstring(page10.content)
+
+fta = tree10.xpath('//*[@id="my-players-table"]/div/div[2]/table/tr[24]/td[7]/text()[normalize-space()]')
+fta = ' '.join(fta)
+
 fileout = open( "data.txt", 'w' )
 fileout.write( pts )
 fileout.write( "\n" )
@@ -73,5 +85,9 @@ fileout.write( "\n" )
 fileout.write( tov )
 fileout.write( "\n" )
 fileout.write( tpm )
+fileout.write( "\n" )
+fileout.write( fga )
+fileout.write( "\n" )
+fileout.write( fta )
 fileout.write( "\n" )
 fileout.close()
