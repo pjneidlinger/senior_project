@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+  <h1 style="margin-left:14px">Player Statistics</h1>
+  <div align="left">
+	<div class="col-md-2">
+		{{ wtf.quick_form(form) }}
+	</div>
+  </div>
+{% endblock %}
+
+{% block acontent %}
+    <h1>Player Statistics</h1>
+    <form action="" method="post" novalidate>
+	{{ form.hidden_tag() }}
+
+	{{ form.points.label }}: {{ form.points(size=5) }}
+	{% for error in form.points.errors %}
+	<span style="color: red;">[{{ error }}]</span>
+	{% endfor %}<br><br>
+
+	{{ form.rebounds.label }}: {{form.rebounds(size=5) }}
+        {% for error in form.rebounds.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br><br>
+
+	{{ form.assists.label }}: {{form.assists(size=5) }}
+	{% for error in form.assists.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br><br>
+
+	{{ form.steals.label }}: {{form.steals(size=5) }}
+        {% for error in form.steals.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br><br>
+
+	{{ form.blocks.label }}: {{form.blocks(size=5) }}
+        {% for error in form.blocks.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br><br>
+
+	{{ form.threes.label }}: {{form.threes(size=5) }}
+        {% for error in form.threes.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br><br>
+
+	{{ form.fgp.label }}: {{form.fgp(size=5) }}
+        {% for error in form.fgp.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br><br>
+
+	{{ form.fga.label }}: {{form.fga(size=5) }}
+        {% for error in form.fga.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br><br>
+
+	{{ form.ftp.label }}: {{form.ftp(size=5) }}
+        {% for error in form.ftp.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br><br>
+
+	{{ form.fta.label }}: {{form.fta(size=5) }}
+        {% for error in form.fta.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br><br>
+
+	{{ form.turnovers.label }}: {{form.turnovers(size=5) }}
+        {% for error in form.turnovers.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br><br>
+
+	{{ form.submit() }}</p>
+    </form>
+{% endblock %}
